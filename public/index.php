@@ -9,3 +9,5 @@ require '../app/helpers/config.php';
 require '../app/routes/home.php';
 
 $app->run();
+
+ 
