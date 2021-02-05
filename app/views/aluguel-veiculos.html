@@ -9,25 +9,32 @@
         <form method="POST">
             <div class="form-row">
                 <div class="col-md-12 mb-3">
-                    <input type="text" class="form-control" name="nome" placeholder="Nome" required>
+                    <input type="text" class="form-control" name="nome-locatario" placeholder="Nome do locatário"
+                        required>
                 </div>
             </div>
             <div class="form-row">
-                <div class="col-md-5 mb-3">
-                    <input type="text" class="form-control" name="marca" placeholder="Endereço" required>
+                <div class="col-md-12 mb-3">
+                    <input type="text" class="form-control" name="endereco-locatario"
+                        placeholder="Endereço do locatário" required>
                 </div>
-                <div class="col-md-3 mb-3">
-                    <input type="text" class="form-control" name="ano"
-                        oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');"
-                        maxlength="4" placeholder="Telefone" required>
-                </div>
+            </div>
+            <div class="form-row">
                 <div class="col-md-4 mb-3">
-                    <select class="form-control">
+                    <select class="form-control" name="selecionar-veiculo-alugar">
                         <option>Selecione o Veículo</option>
                         {% for item in listarVeiculosNaoAlugados %}
-                            <option value="{{item.id}}">{{ item.modelo }}</option>
+                        <option value="{{item.id}}">{{ item.modelo }}</option>
                         {% endfor %}
                     </select>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <input type="text" class="form-control" name="telefone-locatario"
+                        placeholder="Telefone do locatário" required>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <input type="text" class="form-control" name="valor-aluguel"
+                        placeholder="Valor do Aluguel" required>
                 </div>
             </div>
             <button class="btn btn-primary" type="submit">Confirmar</button>
