@@ -1,25 +1,28 @@
 <?php
 namespace app\controllers;
 
-use app\database\models\Veiculos;
+use app\database\models\AluguelVeiculos;
 
 class AluguelVeiculosController extends Base{
 
     private $veiculos;
+    private $aluguelVeiculos;
 
     public function __construct()
     {
-        $this->veiculos = new Veiculos;
+        $this->aluguelVeiculos = new AluguelVeiculos;
     }
 
     public function index($request,$response){
         
-        $veiculosNaoAlugados = $this->veiculos->listarVeiculosNaoAlugados();
+        $veiculosNaoAlugados = $this->aluguelVeiculos->listarVeiculosNaoAlugados();
+        $veiculosAlugados = $this->aluguelVeiculos->listar();
         
         return $this->getTwig()->render($response, $this->setView('aluguel-veiculos'),[
             'titulo' => 'Controle de Veículos',
             'uri' => 'aluguel-veiculos' ,
-            'listarVeiculosNaoAlugados' => $veiculosNaoAlugados
+            'listarVeiculosNaoAlugados' => $veiculosNaoAlugados,
+            'veiculosAlugados' => $veiculosAlugados
         ]);
     }
 }
