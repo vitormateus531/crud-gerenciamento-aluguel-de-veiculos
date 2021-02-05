@@ -5,8 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://getbootstrap.com/docs/4.0/examples/dashboard/dashboard.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" href="assets/img/carro-esporte.png">
     <title>{{ titulo }}</title>
 </head>
 
@@ -22,14 +24,61 @@
                 {% block content %}{% endblock %}
             </main>
             <!-- jQuery library -->
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-            <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/popper.min.js"></script>
+            <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/js/jquery.dataTables.min.js"></script>
+            <script src="assets/js/popper.min.js"></script>
             <!-- Latest compiled JavaScript -->
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-            <script src="https://unpkg.com/feather-icons@4.28.0/dist/feather.min.js"></script>
+            <script src="assets/js/bootstrap.min.js"></script>
+            <script src="assets/js/feather.min.js"></script>
             <script>
                 feather.replace()
             </script>
+            {% if uri == 'controle-veiculos' %}
+            <script>
+                //configuração table
+                $(document).ready(function () {
+                    $('#controle-veiculos').DataTable({
+                        "language": {
+                            "sEmptyTable": "Nenhum registro encontrado",
+                            "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+                            "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+                            "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+                            "sInfoThousands": ".",
+                            "sLengthMenu": "_MENU_ resultados por página",
+                            "sLoadingRecords": "Carregando...",
+                            "sProcessing": "Processando...",
+                            "sZeroRecords": "Nenhum registro encontrado",
+                            "sSearch": "Pesquisar",
+                            "oPaginate": {
+                                "sNext": "Próximo",
+                                "sPrevious": "Anterior",
+                                "sFirst": "Primeiro",
+                                "sLast": "Último"
+                            },
+                            "oAria": {
+                                "sSortAscending": ": Ordenar colunas de forma ascendente",
+                                "sSortDescending": ": Ordenar colunas de forma descendente"
+                            },
+                            "select": {
+                                "rows": {
+                                    "_": "Selecionado %d linhas",
+                                    "0": "Nenhuma linha selecionada",
+                                    "1": "Selecionado 1 linha"
+                                }
+                            },
+                            "buttons": {
+                                "copy": "Copiar para a área de transferência",
+                                "copyTitle": "Cópia bem sucedida",
+                                "copySuccess": {
+                                    "1": "Uma linha copiada com sucesso",
+                                    "_": "%d linhas copiadas com sucesso"
+                                }
+                            }
+                        }
+                    });
+                });
+            </script>
+            {% endif %}
 </body>
 
 </html>
