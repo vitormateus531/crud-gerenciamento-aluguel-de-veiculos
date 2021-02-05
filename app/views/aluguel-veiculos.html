@@ -6,7 +6,7 @@
         <h5>Alugar Veículos</h5>
     </div>
     <div class="card-body">
-        <form method="POST">
+        <form method="POST" action="alugar-carro">
             <div class="form-row">
                 <div class="col-md-12 mb-3">
                     <input type="text" class="form-control" name="nome-locatario" placeholder="Nome do locatário"
@@ -21,6 +21,10 @@
             </div>
             <div class="form-row">
                 <div class="col-md-4 mb-3">
+                    <input type="text" class="form-control" id="cpf" name="cpf-locatario"
+                        placeholder="Cpf" required>
+                </div>
+                <div class="col-md-4 mb-3">
                     <select class="form-control" name="selecionar-veiculo-alugar">
                         <option>Selecione o Veículo</option>
                         {% for item in listarVeiculosNaoAlugados %}
@@ -32,12 +36,12 @@
                     <input type="text" class="form-control" id="telefone-locatario" name="telefone-locatario"
                         placeholder="Telefone do locatário" required>
                 </div>
+            </div>
+            <div class="form-row">
                 <div class="col-md-4 mb-3">
                     <input type="text" class="form-control" id="valor-aluguel" name="valor-aluguel"
                         placeholder="Valor do Aluguel" required>
                 </div>
-            </div>
-            <div class="form-row">
                 <div class="col-md-4 mb-3">
                     <input type="text" class="form-control" name="data-locacao" id="data-locacao"
                         placeholder="Data de locação" required>

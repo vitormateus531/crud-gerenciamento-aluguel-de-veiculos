@@ -1,16 +1,15 @@
 <?php
 namespace app\controllers;
 
-use app\database\models\AluguelVeiculos;
+use app\database\models\ClienteAluguelVeiculos;
 
 class AluguelVeiculosController extends Base{
 
-    private $veiculos;
     private $aluguelVeiculos;
 
     public function __construct()
     {
-        $this->aluguelVeiculos = new AluguelVeiculos;
+        $this->aluguelVeiculos = new ClienteAluguelVeiculos;
     }
 
     public function index($request,$response){
@@ -24,5 +23,12 @@ class AluguelVeiculosController extends Base{
             'listarVeiculosNaoAlugados' => $veiculosNaoAlugados,
             'veiculosAlugados' => $veiculosAlugados
         ]);
+    }
+
+    public function inserirCarroAlugado($request,$response){
+        
+        $this->aluguelVeiculos->inserirCliente($request->getParsedBody());
+        $this->aluguelVeiculos->inserirCarroAlugado($request->getParsedBody());
+        return $response->withHeader('Location', '/aluguel-veiculos');;
     }
 }
