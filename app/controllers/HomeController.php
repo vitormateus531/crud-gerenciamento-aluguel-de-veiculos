@@ -2,13 +2,28 @@
 
 namespace app\controllers;
 
-class HomeController extends Base{
+use app\database\models\Veiculos;
 
-    public function index($request,$response){
-        
-        return $this->getTwig()->render($response, $this->setView('home'),[
+class HomeController extends Base
+{
+
+    private $veiculos;
+
+    public function __construct()
+    {
+        $this->veiculos = new Veiculos;
+    }
+    
+
+    public function index($request, $response)
+    {
+        $veiculos = $this->veiculos->findAll();
+        //var_dump($veiculos);
+        //die();
+        return $this->getTwig()->render($response, $this->setView('home'), [
             'titulo' => 'Home',
-            'uri' => '/' 
+            'uri' => '/'
         ]);
     }
+
 }
