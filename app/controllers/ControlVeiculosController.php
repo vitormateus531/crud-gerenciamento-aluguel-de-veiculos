@@ -23,4 +23,22 @@ class ControlVeiculosController extends Base{
             'listarVeiculos' => $veiculos 
         ]);
     }
+
+    public function inserir($request,$response){   
+       
+        $this->veiculos->inserir($request->getParsedBody());
+        return $response->withHeader('Location', '/controle-veiculos');;
+    }
+
+    public function deletar($request,$response){   
+       
+        $this->veiculos->deletar($request->getParsedBody());
+        return $response->withHeader('Location', '/controle-veiculos');;
+    }
+
+    public function atualizar($request,$response){   
+       
+        $this->veiculos->atualizar($request->getParsedBody());
+        return $response->withHeader('Location', '/controle-veiculos');;
+    }
 }

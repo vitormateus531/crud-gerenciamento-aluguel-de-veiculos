@@ -6,7 +6,7 @@
         <h5>Cadastrar Veículos</h5>
     </div>
     <div class="card-body">
-        <form method="POST">
+        <form method="POST" action="insere-veiculos">
             <div class="form-row">
                 <div class="col-md-12 mb-3">
                     <input type="text" class="form-control" name="modelo" placeholder="Modelo" required>
@@ -59,7 +59,10 @@
                     <td>
                         <button type="button" class="btn btn-sm btn-primary" data-toggle="modal"
                             data-target="#editVeiculo{{ item.id}}">Editar</button>
-                        <button type="button" class="btn btn-sm btn-danger">Remover</button>
+                        <button type="button" class="btn btn-sm btn-danger" onclick="$('#form').submit()" >Remover</button>
+                        <form method="POST" id="form" action="remove-veiculos">
+                            <input type="hidden" name="id-veiculo" value="{{ item.id }}" />
+                        </form>
                     </td>
                 </tr>
 
@@ -74,7 +77,7 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form method="POST">
+                            <form method="POST" action="atualiza-veiculos">
                                 <div class="modal-body">
                                     <div class="form-row">
                                         <div class="col-md-12 mb-3">

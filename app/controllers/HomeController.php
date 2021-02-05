@@ -18,7 +18,7 @@ class HomeController extends Base
     public function index($request, $response)
     {
         $veiculos = $this->veiculos->listar();
-        
+
         return $this->getTwig()->render($response, $this->setView('home'), [
             'titulo' => 'Home',
             'uri' => '/',
