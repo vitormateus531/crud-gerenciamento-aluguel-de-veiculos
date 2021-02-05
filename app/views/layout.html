@@ -27,17 +27,19 @@
             <script src="assets/js/jquery.min.js"></script>
             <script src="assets/js/jquery.dataTables.min.js"></script>
             <script src="assets/js/popper.min.js"></script>
+            <script src="assets/js/jquery.mask.js"></script>
+            <script src="assets/js/jquery.mask.min.js"></script>
             <!-- Latest compiled JavaScript -->
             <script src="assets/js/bootstrap.min.js"></script>
             <script src="assets/js/feather.min.js"></script>
             <script>
                 feather.replace()
             </script>
-            {% if uri == 'controle-veiculos' %}
+            {% if uri == 'controle-veiculos' or uri == 'aluguel-veiculos' %}
             <script>
                 //configuração table
                 $(document).ready(function () {
-                    $('#controle-veiculos').DataTable({
+                    $('#tabela').DataTable({
                         "language": {
                             "sEmptyTable": "Nenhum registro encontrado",
                             "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
@@ -77,6 +79,11 @@
                         }
                     });
                 });
+
+                $("#telefone-locatario").mask("(99) 99999-9999");
+                $("#data-locacao").mask("99/99/9999");
+                $("#data-entrega-locacao").mask("99/99/9999");
+                $("#valor-aluguel").mask('000.000.000.000.000,00', {reverse: true});
             </script>
             {% endif %}
 </body>

@@ -29,16 +29,57 @@
                     </select>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <input type="text" class="form-control" name="telefone-locatario"
+                    <input type="text" class="form-control" id="telefone-locatario" name="telefone-locatario"
                         placeholder="Telefone do locatário" required>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <input type="text" class="form-control" name="valor-aluguel"
+                    <input type="text" class="form-control" id="valor-aluguel" name="valor-aluguel"
                         placeholder="Valor do Aluguel" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <input type="text" class="form-control" name="data-locacao" id="data-locacao"
+                        placeholder="Data de locação" required>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <input type="text" class="form-control" id="data-entrega-locacao" name="data-entrega-alocacao"
+                        placeholder="Data de entrega" required>
                 </div>
             </div>
             <button class="btn btn-primary" type="submit">Confirmar</button>
         </form>
+    </div>
+</div>
+
+<div class="card" style="margin-top:20px">
+    <div class="card-body">
+        <table id="tabela" class="display" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Nome do Locatário</th>
+                    <th>Telefone do Locatário</th>
+                    <th>Valor do Aluguel</th>
+                    <th>Modelo do veículo</th>
+                    <th>Placa</th>
+                    <th>Data de locação</th>
+                    <th>Data de Entrega</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <td>Vitor Mateus</td>
+                <td>(99) 99999-99999</td>
+                <td>400.00</td>
+                <td>modelo teste</td>
+                <td>ATX-49848</td>
+                <td>05/02/2021</td>
+                <td>05/03/2021</td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-danger" onclick="$('#form').submit()">Cancelar locação</button>
+                </td>
+            </tbody>
+        </table>
     </div>
 </div>
 {% endblock %}
