@@ -24,6 +24,9 @@
                 <div class="col-md-4 mb-3">
                     <select class="form-control">
                         <option>Selecione o Veículo</option>
+                        {% for item in listarVeiculosNaoAlugados %}
+                            <option value="{{item.id}}">{{ item.modelo }}</option>
+                        {% endfor %}
                     </select>
                 </div>
             </div>

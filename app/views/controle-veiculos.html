@@ -49,64 +49,66 @@
                 </tr>
             </thead>
             <tbody>
+                {% for item in listarVeiculos %}
                 <tr>
-                    <td>Tiger Nixon</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
-                    <td>61</td>
-                    <td>2011/04/25</td>
+                    <td>{{ item.modelo}}</td>
+                    <td>{{ item.marca }}</td>
+                    <td>{{ item.ano }}</td>
+                    <td>{{ item.placa }}</td>
+                    <td>{% if item.status == 0 %} Não {% else %} Sim {% endif %}</td>
                     <td>
                         <button type="button" class="btn btn-sm btn-primary" data-toggle="modal"
-                            data-target="#exampleModal">Editar</button>
+                            data-target="#editVeiculo{{ item.id}}">Editar</button>
                         <button type="button" class="btn btn-sm btn-danger">Remover</button>
                     </td>
                 </tr>
+
+                <!-- Modal -->
+                <div class="modal fade" id="editVeiculo{{ item.id}}" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Atualizar informações</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <form method="POST">
+                                <div class="modal-body">
+                                    <div class="form-row">
+                                        <div class="col-md-12 mb-3">
+                                            <input type="text" class="form-control" name="atualizar-modelo"
+                                                placeholder="Modelo" value="{{ item.modelo }}" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-4 mb-3">
+                                            <input type="text" class="form-control" name="atualizar-marca" value="{{ item.marca }}"
+                                                placeholder="Marca" required>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <input type="text" class="form-control" name="atualizar-ano"
+                                                oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');"
+                                                maxlength="4" placeholder="Ano" value="{{ item.ano }}" required>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <input type="text" class="form-control" name="atualizar-placa"
+                                                placeholder="Placa" value="{{ item.placa }}" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                    <button type="submit" class="btn btn-primary">Atualizar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
             </tbody>
         </table>
-    </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Atualizar informações</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form method="POST">
-                <div class="modal-body">
-                    <div class="form-row">
-                        <div class="col-md-12 mb-3">
-                            <input type="text" class="form-control" name="patrimonio-equipamento" placeholder="Modelo"
-                                required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="col-md-4 mb-3">
-                            <input type="text" class="form-control" name="patrimonio-equipamento" placeholder="Marca"
-                                required>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <input type="text" class="form-control" name="patrimonio-equipamento"
-                                oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');"
-                                maxlength="4" placeholder="Ano" required>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <input type="text" class="form-control" name="patrimonio-equipamento" placeholder="Placa"
-                                required>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    <button type="submit" class="btn btn-primary" >Atualizar</button>
-                </div>
-            </form>
-        </div>
     </div>
 </div>
 {% endblock %}

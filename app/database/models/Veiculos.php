@@ -24,4 +24,15 @@ class Veiculos
             var_dump($e->getMessage());
         }
     }
+
+    public function listarVeiculosNaoAlugados()
+    {
+        try {
+            $query = $this->conexao->query('select * from veiculos where status = 0');
+            return $query->fetchAll();
+        } catch (PDOException $e) {
+            var_dump($e->getMessage());
+        }
+    }
+
 }

@@ -18,11 +18,11 @@ class HomeController extends Base
     public function index($request, $response)
     {
         $veiculos = $this->veiculos->listar();
-        var_dump($veiculos);
-        die();
+        
         return $this->getTwig()->render($response, $this->setView('home'), [
             'titulo' => 'Home',
-            'uri' => '/'
+            'uri' => '/',
+            'listarVeiculos' => $veiculos
         ]);
     }
 

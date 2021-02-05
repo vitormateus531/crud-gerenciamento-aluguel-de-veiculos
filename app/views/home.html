@@ -3,7 +3,7 @@
 {% block content %}
 <div class="album py-5 bg-light">
     <div class="container">
-
+    {% for item in listarVeiculos %}
         <div class="row">
             <div class="col-md-4">
                 <div class="card mb-4 box-shadow">
@@ -11,35 +11,22 @@
                         src="https://www.autoo.com.br/fotos/2018/10/960_720/volkswagen_t-cross_2019_1_25102018_10897_960_720.jpg"
                         alt="Card image cap">
                     <div class="card-body">
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.</p>
+                        <label class="card-text"><b>Modelo:</b> {{item.modelo}}</label><br>
+                        <label class="card-text"><b>Marca:</b> {{item.marca}} </label><br>
+                        <label class="card-text"><b>Ano:</b> {{item.ano}} </label>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-success" disabled>Alugar</button>
-                            </div>
-                            <small class="text-muted"></small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4">
-                <div class="card mb-4 box-shadow">
-                    <img class="card-img-top"
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0ai_-5eQB0GIbwkwGJjHvkUArVPBpgN5pxw&usqp=CAU"
-                        alt="Card image cap">
-                    <div class="card-body">
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
+                                {% if item.status == 0 %}
+                                <button type="button" class="btn btn-sm btn-outline-success" disabled>Disponível</button>
+                                {% else %}
                                 <button type="button" class="btn btn-sm btn-outline-secondary" disabled>Alugado</button>
+                                {% endif %}
                             </div>
                             <small class="text-muted"></small>
                         </div>
                     </div>
                 </div>
             </div>
-
+        {% endfor %}
         </div>
         {% endblock %}
