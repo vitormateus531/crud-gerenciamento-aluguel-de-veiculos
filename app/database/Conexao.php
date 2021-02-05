@@ -14,7 +14,7 @@ class Conexao
     {
         if (!static::$pdo) {
             try {
-                static::$pdo = new PDO('mysql:host=localhost;dbname=locadora_veiculos', 'root', '', [
+                static::$pdo = new PDO('mysql:host='.HOST.';dbname='.DATABASE, USER, PASSWORD, [
                     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ
                 ]);
