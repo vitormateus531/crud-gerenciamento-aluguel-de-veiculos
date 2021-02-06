@@ -9,23 +9,23 @@
         <form method="POST" action="alugar-carro">
             <div class="form-row">
                 <div class="col-md-12 mb-3">
-                    <input type="text" class="form-control" name="nome-locatario" placeholder="Nome do locatário"
+                    <input type="text" class="form-control" name="nome_locatario" placeholder="Nome do locatário"
                         required>
                 </div>
             </div>
             <div class="form-row">
                 <div class="col-md-12 mb-3">
-                    <input type="text" class="form-control" name="endereco-locatario"
+                    <input type="text" class="form-control" name="endereco_locatario"
                         placeholder="Endereço do locatário" required>
                 </div>
             </div>
             <div class="form-row">
                 <div class="col-md-4 mb-3">
-                    <input type="text" class="form-control" id="cpf" name="cpf-locatario"
+                    <input type="text" class="form-control" id="cpf" name="cpf_locatario"
                         placeholder="Cpf" required>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <select class="form-control" name="selecionar-veiculo-alugar">
+                    <select class="form-control" name="selecionar_veiculo_alugar">
                         <option>Selecione o Veículo</option>
                         {% for item in listarVeiculosNaoAlugados %}
                         <option value="{{item.id}}">{{ item.modelo }}</option>
@@ -33,21 +33,21 @@
                     </select>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <input type="text" class="form-control" id="telefone-locatario" name="telefone-locatario"
+                    <input type="text" class="form-control" id="telefone-locatario" name="telefone_locatario"
                         placeholder="Telefone do locatário" required>
                 </div>
             </div>
             <div class="form-row">
                 <div class="col-md-4 mb-3">
-                    <input type="text" class="form-control" id="valor-aluguel" name="valor-aluguel"
+                    <input type="text" class="form-control" id="valor-aluguel" name="valor_aluguel"
                         placeholder="Valor do Aluguel" required>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <input type="text" class="form-control" name="data-locacao" id="data-locacao"
+                    <input type="text" class="form-control" name="data_locacao" id="data-locacao"
                         placeholder="Data de locação" required>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <input type="text" class="form-control" id="data-entrega-locacao" name="data-entrega-alocacao"
+                    <input type="text" class="form-control" id="data-entrega-locacao" name="data_entrega_locacao"
                         placeholder="Data de entrega" required>
                 </div>
             </div>
@@ -84,6 +84,10 @@
                     <td>
                         <button type="button" class="btn btn-sm btn-danger" onclick="$('#form').submit()">Cancelar
                             locação</button>
+                        <form method="POST" action="devolucao-carro" id="form" >
+                            <input type="hidden" name="id_carro" value="{{item.id_carro}}" />
+                            <input type="hidden" name="id_remocao_carro_alugado" value="{{item.id}}" />
+                        </form>
                     </td>
                 </tr>
                 {% endfor %}
