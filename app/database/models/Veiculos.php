@@ -25,7 +25,7 @@ class Veiculos
         }
     }
 
-    public function inserir($array)
+    public function inserir($array,$img)
     {
         try {
             $inserir = $this->conexao->prepare("insert into veiculos(modelo,ano,marca,placa,imagem,status) values (:modelo, :ano, :marca,:placa,:imagem,:status)");
@@ -33,7 +33,7 @@ class Veiculos
             $inserir->bindValue(":ano", $array['ano']);
             $inserir->bindValue(":marca", $array['marca']);
             $inserir->bindValue(":placa", $array['placa']);
-            $inserir->bindValue(":imagem", $array['imagem']);
+            $inserir->bindValue(":imagem", $img);
             $inserir->bindValue(":status", 0);
             $inserir->execute();
         } catch (PDOException $e) {

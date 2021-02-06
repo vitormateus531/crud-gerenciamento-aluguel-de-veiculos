@@ -40,15 +40,17 @@
             <div class="form-row">
                 <div class="col-md-4 mb-3">
                     <input type="text" class="form-control" id="valor-aluguel" name="valor_aluguel"
-                        placeholder="Valor do Aluguel" required>
+                        placeholder="Valor do Aluguel" required> 
                 </div>
                 <div class="col-md-4 mb-3">
-                    <input type="text" class="form-control" name="data_locacao" id="data-locacao"
+                    <input type="date" class="form-control" name="data_locacao" 
                         placeholder="Data de locação" required>
+                        <small>Data de locação</small>
                 </div>
                 <div class="col-md-4 mb-3">
-                    <input type="text" class="form-control" id="data-entrega-locacao" name="data_entrega_locacao"
+                    <input type="date" class="form-control"  name="data_entrega_locacao"
                         placeholder="Data de entrega" required>
+                        <small>Data de entrega</small> 
                 </div>
             </div>
             <button class="btn btn-primary" type="submit">Confirmar</button>
@@ -79,8 +81,8 @@
                     <td>{{item.valor_contratado}}</td>
                     <td>{{item.modelo}}</td>
                     <td>{{item.placa}}</td>
-                    <td>{{item.data_aluguel}}</td>
-                    <td>{{item.data_expiracao}}</td>
+                    <td>{{item.data_aluguel | date("d/m/Y")}}</td>
+                    <td>{{item.data_expiracao | date("d/m/Y")}}</td>
                     <td>
                         <button type="button" class="btn btn-sm btn-danger" onclick="$('#form').submit()">Cancelar
                             locação</button>

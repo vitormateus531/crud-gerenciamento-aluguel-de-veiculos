@@ -58,8 +58,8 @@ class ClienteAluguelVeiculos
             $inserir->bindValue(":id_carro", $array['selecionar_veiculo_alugar']);
             $inserir->bindValue(":cpf_cliente", $array['cpf_locatario']);
             $inserir->bindValue(":valor_contratado", str_replace(",",".",$array['valor_aluguel']));
-            $inserir->bindValue(":data_aluguel", date("Y-m-d", str_replace("/","-",$array['data_locacao'])));
-            $inserir->bindValue(":data_expiracao", date("Y-m-d", str_replace("/","-",$array['data_entrega_locacao'])));
+            $inserir->bindValue(":data_aluguel", date("Y-m-d", strtotime($array['data_locacao'])));
+            $inserir->bindValue(":data_expiracao", date("Y-m-d", strtotime($array['data_entrega_locacao'])));
             $inserir->execute();
         } catch (PDOException $e) {
             var_dump($e->getMessage());

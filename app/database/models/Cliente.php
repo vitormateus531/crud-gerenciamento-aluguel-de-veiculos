@@ -15,11 +15,16 @@ class Cliente
         $this->conexao = Conexao::connect();
     }
 
-    public function countVerificaCliente($cpf){
-        $countCliente = $this->conexao->prepare("select COUNT(*) from cliente where cpf = :cpf");
-        $countCliente->bindValue(":cpf",$cpf);
-        $countCliente->execute();
-        $rowCount = $countCliente->fetchColumn(0); 
-        return $rowCount;
+    public function countVerificaCliente($cpf)
+    {
+        try {
+            $countCliente = $this->conexao->prepare("select COUNT(*) from cliente where cpf = :cpf");
+            $countCliente->bindValue(":cpf", $cpf);
+            $countCliente->execute();
+            $rowCount = $countCliente->fetchColumn(0);
+            return $rowCount;
+        } catch (PDOException $e) {
+            var_dump($e->getMessage());
+        }
     }
 }

@@ -26,7 +26,7 @@ class ControlVeiculosController extends Base{
 
     public function inserir($request,$response){   
        
-        $this->veiculos->inserir($request->getParsedBody());
+        $this->veiculos->inserir($request->getParsedBody(),base64_encode(file_get_contents($_FILES["imagem"]["tmp_name"])));
         return $response->withHeader('Location', '/controle-veiculos');
     }
 
