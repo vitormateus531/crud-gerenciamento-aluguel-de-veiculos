@@ -7,7 +7,7 @@
   - Desenvolver um sistema de gerenciamento de veículos para uma locadora
  
 
-##### Pré-requisitos
+#### Pré-requisitos
   - Php 7.2 ou souperior
   - Base de dados mysql (phpMyAdmin ou Workbench)
 
