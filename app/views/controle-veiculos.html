@@ -59,8 +59,8 @@
                     <td>
                         <button type="button" class="btn btn-sm btn-primary" data-toggle="modal"
                             data-target="#editVeiculo{{ item.id}}">Editar</button>
-                        <button type="button" class="btn btn-sm btn-danger" onclick="$('#form').submit()" >Remover</button>
-                        <form method="POST" id="form" action="remove-veiculos">
+                        <button type="button" class="btn btn-sm btn-danger" onclick="$('#form{{ item.id }}').submit()" >Remover</button>
+                        <form method="POST" id="form{{ item.id }}" action="remove-veiculos">
                             <input type="hidden" name="id-veiculo" value="{{ item.id }}" />
                         </form>
                     </td>

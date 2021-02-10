@@ -84,9 +84,9 @@
                     <td>{{item.data_aluguel | date("d/m/Y")}}</td>
                     <td>{{item.data_expiracao | date("d/m/Y")}}</td>
                     <td>
-                        <button type="button" class="btn btn-sm btn-danger" onclick="$('#form').submit()">Cancelar
+                        <button type="button" class="btn btn-sm btn-danger" onclick="$('#form{{item.id}}').submit()">Cancelar
                             locação</button>
-                        <form method="POST" action="devolucao-carro" id="form" >
+                        <form method="POST" action="devolucao-carro" id="form{{item.id}}" >
                             <input type="hidden" name="id_carro" value="{{item.id_carro}}" />
                             <input type="hidden" name="id_remocao_carro_alugado" value="{{item.id}}" />
                         </form>
