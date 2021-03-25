@@ -30,7 +30,7 @@ A aplicação possui as seguintes rotas:
 | /aluguel-veiculos | GET | exibe view e retorna lista de veiculos alugados. |
 | /alugar-carro | POST | Recebe um array com os valores: nome do locatario, endereço, cpf , id do veiculo, telefone , valor do aluguel , data de locação, data de entrega. |
 | /devolucao-carro | POST |Recebe um array com os valores: id do carro, status do carro (boleano 0 e 1 onde 0 é disponível), id de devolução do carro.
-| /controle-veiculos | GET | exibi view e retorna lista de veiculos cadastrados.|
+| /controle-veiculos | GET | exibe view e retorna lista de veiculos cadastrados.|
 | /insere-veiculos | POST | Recebe um array com os valores: modelo do carro, ano, marca, placa, imagem do carro, status. |
 | /atualiza-veiculos | POST | Recebe um array com os valores: modelo do carro, ano, marca, placa. |
 | /remove-veiculos | POST | Recebe um array com os valores:  id do carro. |
