@@ -8,7 +8,7 @@
  
 
 #### Pré-requisitos
-  - Php 7.2 ou souperior
+  - Php 7.2 ou superior
   - Base de dados mysql (phpMyAdmin ou Workbench)
 
 #### Executando a aplicação
